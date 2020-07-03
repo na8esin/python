@@ -11,7 +11,10 @@ with open('data.tsv', newline='', encoding="utf-8") as csvfile:
         #print(minute)
         if hour == 0:
             continue
-        sum += (hour-8)*60 + minute
+        # 分に直して足し合わせ
+        sum += hour*60 + minute
         day_counter += 1
 print(sum)
-print(sum-(day_counter*30))
+extra_minute = sum-(day_counter*(8*60+30))
+print("extra_minute : " + str(extra_minute))
+print("extra_minute/30 : " + str(extra_minute/30))
